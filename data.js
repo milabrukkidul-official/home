@@ -1,27 +1,39 @@
 const siteData = {
   "siteTitle": "SocialHub",
-  "heroTitle": "Your <span>Social Hub</span>",
+  "logoImage": "https://i.ibb.co.com/KjmVNfP3/LOGO-MI-LABRUK-MINM.png",
+  "heroTitle": "MI <span>Nurul Islam Labruk Kidul</span>",
   "heroSubtitle": "Connect with us across the digital universe. All your favorite platforms in one place.",
   "nav": [
     {
-      "name": "Home",
-      "link": "#"
+      "name": "Our Home",
+      "link": "https://maps.app.goo.gl/FGmx4a7TYppVXzwH9"
     },
     {
-      "name": "Services",
+      "name": "Operator",
       "link": "#",
       "dropdown": [
-        { "name": "Web Development", "link": "#web" },
-        { "name": "UI/UX Design", "link": "#design" },
-        { "name": "Consulting", "link": "#consulting" }
+        { "name": "emis", "link": "https://emis.kemenag.go.id/", "iconClass": "fa-solid fa-school" },
+        { "name": "vervalpd", "link": "https://vervalpdnew2.data.kemdikbud.go.id/", "iconClass": "fa-solid fa-check-double" },
+        { "name": "emisgtk", "link": "https://emisgtk.kemenag.go.id/login", "iconClass": "fa-solid fa-user-tie" },
+        { "name": "dev-emisgtk", "link": "https://dev-emisgtk.kemenag.go.id/login", "iconClass": "fa-solid fa-code" },
+        { "name": "pdum", "link": "https://pdum.kemenag.go.id/", "iconClass": "fa-solid fa-table" },
+        { "name": "tka", "link": "https://tka.kemendikdasmen.go.id/", "iconClass": "fa-solid fa-book-open" }
       ]
     },
     {
-      "name": "Portfolio",
+      "name": "Kurikulum",
       "link": "#",
       "dropdown": [
-        { "name": "Projects", "link": "#projects" },
-        { "name": "Case Studies", "link": "#cases" }
+        { "name": "kaldik 25/26", "link": "https://docs.google.com/spreadsheets/d/1IY58YsfpY9qRGM0Ee4UZvOJE7WPKrFUBuDuuOlvy6JY/edit?usp=sharing", "iconClass": "fa-solid fa-calendar" },
+        { "name": "kaldik 24/25", "link": "https://docs.google.com/spreadsheets/d/1nsl4zmEyQhkhumqP5V53YZKP4bGpvfzBvzqloGDfrl8/edit?usp=sharing", "iconClass": "fa-solid fa-calendar" },
+         ]
+    },
+    {
+      "name": "Kesiswaan",
+      "link": "#",
+      "dropdown": [
+        { "name": "Projects", "link": "#projects", "iconClass": "fa-solid fa-folder-open" },
+        { "name": "Case Studies", "link": "#cases", "iconClass": "fa-solid fa-file-lines" }
       ]
     },
     {
@@ -31,67 +43,67 @@ const siteData = {
   ],
   "icons": [
     {
-      "name": "GitHub",
-      "url": "https://github.com",
-      "domain": "github.com",
+      "name": "Presensi",
+      "url": "https://milabrukkidul-official.github.io/presensi/",
+      "domain": "Kehadiran MI Labrukkidul",
       "color": "#e94560",
-      "iconClass": "fa-brands fa-github"
+      "iconClass": "fa-solid fa-user-clock"
     },
     {
-      "name": "X / Twitter",
-      "url": "https://twitter.com",
-      "domain": "twitter.com",
-      "color": "#1da1f2",
-      "iconClass": "fa-brands fa-x-twitter"
+      "name": "Rundown",
+      "url": "https://script.google.com/macros/s/AKfycbzEy8q_JarveAwhOzf8jIlSodbc7iqSKTWgQg_LDZ6SmLGdxPCeKPKMgRCKNlpP2aXT/exec",
+      "domain": "Kegiatan MI Labrukkidul",
+      "color": "#ff6f00ff",
+      "iconClass": "fa-solid fa-calendar-days"
     },
     {
-      "name": "LinkedIn",
-      "url": "https://linkedin.com",
-      "domain": "linkedin.com",
-      "color": "#0077b5",
-      "iconClass": "fa-brands fa-linkedin"
+      "name": "Kepegawaian",
+      "url": "https://script.google.com/macros/s/AKfycbxkYa6aqnF1ZktdU4lQ7FnDOqsdmhzXYRJtxN61iOCGv_cRNuNFYbgLJgojNHht2jq6/exec",
+      "domain": "Guru & Karyawan",
+      "color": "#f1ed01ff",
+      "iconClass": "fa-solid fa-clipboard-user"
+    },
+      {
+      "name": "Raport UTS",
+      "url": "https://milabrukkidul-official.github.io/rdts/",
+      "domain": "Managemen Rapor UTS",
+      "color": "#00c527ff",
+      "iconClass": "fa-solid fa-chart-column"
     },
     {
+      "name": "RDM",
+      "url": "https://wa.me/6285117008700?text=link+raport+RDM",
+      "domain": "Rapor Digital Madrasah",
+      "color": "#92f21dff",
+      "iconClass": "fa-solid fa-laptop-file"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/minurulislamlabrukkidul/",
+      "domain": "mi nurul islam labruk kidul",
+      "color": "#f5b800ff",
+      "iconClass": "fa-brands fa-instagram"
+    },
+    {
+      "name": "tiktok",
+      "url": "https://www.tiktok.com/@nuris.media",
+      "domain": "Adik Nuris MILabkid",
+      "color": "#ea4c74ff",
+      "iconClass": "fa-brands fa-tiktok"
+    },
+     {
       "name": "YouTube",
-      "url": "https://youtube.com",
-      "domain": "youtube.com",
+      "url": "https://youtube.com/@minurulislamlabrukkidul",
+      "domain": "mi nurul islam labruk kidul",
       "color": "#ff0000",
       "iconClass": "fa-brands fa-youtube"
     },
     {
-      "name": "Instagram",
-      "url": "https://instagram.com",
-      "domain": "instagram.com",
-      "color": "#e4405f",
-      "iconClass": "fa-brands fa-instagram"
-    },
-    {
-      "name": "Discord",
-      "url": "https://discord.com",
-      "domain": "discord.com",
-      "color": "#5865f2",
-      "iconClass": "fa-brands fa-discord"
-    },
-    {
-      "name": "Spotify",
-      "url": "https://spotify.com",
-      "domain": "spotify.com",
-      "color": "#1db954",
-      "iconClass": "fa-brands fa-spotify"
-    },
-    {
-      "name": "Dribbble",
-      "url": "https://dribbble.com",
-      "domain": "dribbble.com",
-      "color": "#ea4c89",
-      "iconClass": "fa-brands fa-dribbble"
-    },
-    {
-      "name": "Figma",
-      "url": "https://figma.com",
-      "domain": "figma.com",
+      "name": "website",
+      "url": "https://milabrukkidul.blogspot.com/",
+      "domain": "milabrukkidul",
       "color": "#f24e1e",
-      "iconClass": "fa-brands fa-figma"
+      "iconClass": "fa-brands fa-chrome"
     }
   ]
 };
