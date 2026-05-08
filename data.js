@@ -37,8 +37,8 @@ const siteData = {
       ]
     },
     {
-      "name": "Contact",
-      "link": "#"
+      "name": "WA me",
+      "link": "https://wa.me/6285746677738?text=Assalamualaikum+Wr+Wb."
     }
   ],
   "icons": [
