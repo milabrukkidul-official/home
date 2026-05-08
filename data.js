@@ -1,5 +1,5 @@
 const siteData = {
-  "siteTitle": "milabkid",
+  "siteTitle": "page of milabkid",
   "logoImage": "https://i.ibb.co.com/KjmVNfP3/LOGO-MI-LABRUK-MINM.png",
   "favicon": "https://avatars.githubusercontent.com/u/275853018?s=400&v=4",
    "heroTitle": "MI <span>Nurul Islam Labruk Kidul</span>",
