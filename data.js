@@ -1,5 +1,5 @@
 const siteData = {
-  "siteTitle": "SocialHub",
+  "siteTitle": "milabkid",
   "logoImage": "https://i.ibb.co.com/KjmVNfP3/LOGO-MI-LABRUK-MINM.png",
   "heroTitle": "MI <span>Nurul Islam Labruk Kidul</span>",
   "heroSubtitle": "Connect with us across the digital universe. All your favorite platforms in one place.",
