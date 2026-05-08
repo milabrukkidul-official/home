@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Hub</title>
+    <link id="favicon" rel="icon" type="image/png" href="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -479,9 +480,15 @@
         }
 
         function renderPage(data) {
-            // Site title & logo
+            // Site title, logo & favicon
             if (data.siteTitle) {
                 document.title = data.siteTitle;
+            }
+            const faviconEl = document.getElementById('favicon');
+            if (data.favicon) {
+                faviconEl.href = data.favicon;
+            } else if (data.logoImage) {
+                faviconEl.href = data.logoImage;
             }
             const logoEl = document.getElementById('siteLogo');
             if (data.logoImage) {
