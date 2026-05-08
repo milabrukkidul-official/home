@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e94560;
+            line-height: 1.6;
+        }
+
+        /* Animated background orbs */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(233,69,96,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(83,52,131,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        /* Desktop Nav */
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-item > a:hover {
+            color: #fff;
+        }
+
+        .nav-item > a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            transition: width 0.3s;
+        }
+
+        .nav-item > a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.6em;
+            opacity: 0.6;
+            transition: transform 0.3s;
+        }
+
+        .nav-item:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Desktop Dropdown */
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(22,33,62,0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 0.6rem 0;
+            min-width: 190px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            list-style: none;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background: rgba(22,33,62,0.98);
+            border-left: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            top: calc(100% + 8px);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.6rem 1.25rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu li a:hover {
+            color: #e94560;
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 101;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(22,33,62,0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 1.5rem 2rem;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav > ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: block;
+            padding: 0.6rem 0;
+        }
+
+        .mobile-nav a:hover {
+            color: #e94560;
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 1rem;
+            list-style: none;
+        }
+
+        .mobile-dropdown-menu.open {
+            max-height: 300px;
+        }
+
+        .mobile-dropdown-menu a {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            padding: 0.4rem 0;
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #e94560, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 3.5rem;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Icons Grid */
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .icon-card {
+            --hover-color: #e94560;
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+        }
+
+        .icon-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255,255,255,0.06);
+            border-color: var(--hover-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 60px rgba(0,0,0,0.2);
+        }
+
+        .icon-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.35s;
+        }
+
+        .icon-card:hover i {
+            color: var(--hover-color);
+            transform: scale(1.1);
+        }
+
+        .icon-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.35rem;
+        }
+
+        .icon-card p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .icons-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            main {
+                padding: 3rem 1.25rem;
+            }
+
+            header {
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .icons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-nav.active {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo" id="siteLogo">SocialHub</div>
+            <nav>
+                <ul class="nav-links" id="desktopNav"></ul>
+            </nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <ul id="mobileNavList"></ul>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="hero-title" id="heroTitle">Your <span>Social Hub</span></h1>
+        <p class="hero-subtitle" id="heroSubtitle">Connect with us across the digital universe. All your favorite platforms in one place.</p>
+
+        <div class="icons-grid" id="iconsGrid"></div>
+    </main>
+
+    <script src="data.js"></script>
+    <script>
+        function loadData() {
+            if (typeof siteData !== 'undefined') {
+                renderPage(siteData);
+            } else {
+                console.error('data.js not loaded');
+            }
+        }
+
+        function renderPage(data) {
+            // Site title
+            if (data.siteTitle) {
+                document.title = data.siteTitle;
+                document.getElementById('siteLogo').textContent = data.siteTitle;
+            }
+
+            // Hero
+            if (data.heroTitle) {
+                document.getElementById('heroTitle').innerHTML = data.heroTitle;
+            }
+            if (data.heroSubtitle) {
+                document.getElementById('heroSubtitle').textContent = data.heroSubtitle;
+            }
+
+            // Desktop nav
+            const desktopNav = document.getElementById('desktopNav');
+            desktopNav.innerHTML = '';
+            (data.nav || []).forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'nav-item';
+
+                if (item.dropdown && item.dropdown.length > 0) {
+                    li.innerHTML = `
+                        <a href="${item.link}">
+                            ${item.name}
+                            <span class="dropdown-arrow">&#9662;</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            ${item.dropdown.map(sub => `
+                                <li><a href="${sub.link}">${sub.name}</a></li>
+                            `).join('')}
+                        </ul>
+                    `;
+                } else {
+                    li.innerHTML = `<a href="${item.link}">${item.name}</a>`;
+                }
+                desktopNav.appendChild(li);
+            });
+
+            // Mobile nav
+            const mobileNavList = document.getElementById('mobileNavList');
+            mobileNavList.innerHTML = '';
+            (data.nav || []).forEach((item, index) => {
+                if (item.dropdown && item.dropdown.length > 0) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <div class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(${index})">
+                            <a href="${item.link}" onclick="event.stopPropagation()">${item.name}</a>
+                            <span id="arrow-${index}">&#9662;</span>
+                        </div>
+                        <ul class="mobile-dropdown-menu" id="mobile-dropdown-${index}">
+                            ${item.dropdown.map(sub => `
+                                <li><a href="${sub.link}" onclick="toggleMenu()">${sub.name}</a></li>
+                            `).join('')}
+                        </ul>
+                    `;
+                    mobileNavList.appendChild(li);
+                } else {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${item.link}" onclick="toggleMenu()">${item.name}</a>`;
+                    mobileNavList.appendChild(li);
+                }
+            });
+
+            // Icons grid
+            const iconsGrid = document.getElementById('iconsGrid');
+            iconsGrid.innerHTML = '';
+            (data.icons || []).forEach(icon => {
+                const card = document.createElement('a');
+                card.href = icon.url;
+                card.target = '_blank';
+                card.className = 'icon-card';
+                card.style.setProperty('--hover-color', icon.color || '#e94560');
+                card.innerHTML = `
+                    <i class="${icon.iconClass}"></i>
+                    <h3>${icon.name}</h3>
+                    <p>${icon.domain || new URL(icon.url).hostname.replace('www.', '')}</p>
+                `;
+                iconsGrid.appendChild(card);
+            });
+        }
+
+        function toggleMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+
+        function toggleMobileDropdown(index) {
+            const menu = document.getElementById('mobile-dropdown-' + index);
+            const arrow = document.getElementById('arrow-' + index);
+            menu.classList.toggle('open');
+            arrow.style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        loadData();
+    </script>
+</body>
+</html>
