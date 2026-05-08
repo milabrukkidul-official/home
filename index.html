@@ -285,7 +285,7 @@
             z-index: 1;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 2.5rem 2rem;
+            padding: 0.5rem 2rem;
             text-align: center;
         }
 
@@ -293,7 +293,7 @@
             font-size: 3rem;
             font-weight: 800;
             color: #fff;
-            margin-bottom: 0.75rem;
+            margin-bottom: -0.25rem;
             letter-spacing: -1.5px;
         }
 
@@ -305,9 +305,9 @@
         }
 
         .hero-subtitle {
-            font-size: 1.15rem;
+            font-size: 0.9rem;
             color: rgba(255,255,255,0.55);
-            margin-bottom: 3.5rem;
+            margin-bottom: 1.5rem;
             max-width: 480px;
             margin-left: auto;
             margin-right: auto;
@@ -409,7 +409,7 @@
             }
 
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 0.8rem;
             }
 
             .icons-grid {
@@ -418,7 +418,7 @@
             }
 
             main {
-                padding: 3rem 1.25rem;
+                padding: 1rem 1.25rem;
             }
 
             header {
@@ -495,7 +495,7 @@
                 document.getElementById('heroTitle').innerHTML = data.heroTitle;
             }
             if (data.heroSubtitle) {
-                document.getElementById('heroSubtitle').textContent = data.heroSubtitle;
+                document.getElementById('heroSubtitle').innerHTML = data.heroSubtitle;
             }
 
             // Desktop nav
