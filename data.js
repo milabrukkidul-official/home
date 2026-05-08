@@ -27,7 +27,7 @@ const siteData = {
       "dropdown": [
         { "name": "kaldik 25/26", "link": "https://docs.google.com/spreadsheets/d/1IY58YsfpY9qRGM0Ee4UZvOJE7WPKrFUBuDuuOlvy6JY/edit?usp=sharing", "iconClass": "fa-solid fa-calendar" },
         { "name": "kaldik 24/25", "link": "https://docs.google.com/spreadsheets/d/1nsl4zmEyQhkhumqP5V53YZKP4bGpvfzBvzqloGDfrl8/edit?usp=sharing", "iconClass": "fa-solid fa-calendar" },
-        { "name": "Pengumuman Lulus 26", "link": "https://milabrukkidul-official.github.io/kelulusan2526/", "iconClass": "fa fa-graduation-cap" },
+        { "name": "Pengumuman Lulus 26", "link": "https://milabrukkidul-official.github.io/kelulusan2526/", "iconClass": "fa-solid fa-graduation-cap" },
          ]
     },
     {
