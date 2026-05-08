@@ -1,7 +1,8 @@
 const siteData = {
   "siteTitle": "milabkid",
   "logoImage": "https://i.ibb.co.com/KjmVNfP3/LOGO-MI-LABRUK-MINM.png",
-  "heroTitle": "MI <span>Nurul Islam Labruk Kidul</span>",
+  "favicon": "https://avatars.githubusercontent.com/u/275853018?s=400&v=4",
+   "heroTitle": "MI <span>Nurul Islam Labruk Kidul</span>",
   "heroSubtitle": "Aku Qur'ani, Berprestasi Unggul dalam Ilmu dan Amal<br>MI-Q Excellent Quranic School<br>Adik Nuris : &quot;semangat, sukses, yes!&quot;",
   "nav": [
     {
