@@ -18,7 +18,7 @@ const siteData = {
         { "name": "emisgtk", "link": "https://emisgtk.kemenag.go.id/login", "iconClass": "fa-solid fa-user-tie" },
         { "name": "dev-emisgtk", "link": "https://dev-emisgtk.kemenag.go.id/login", "iconClass": "fa-solid fa-code" },
         { "name": "pdum", "link": "https://pdum.kemenag.go.id/", "iconClass": "fa-solid fa-table" },
-        { "name": "tka", "link": "https://tka.kemendikdasmen.go.id/", "iconClass": "fa-solid fa-book-open" }
+        { "name": "tka", "link": "https://tka.kemendikdasmen.go.id/", "iconClass": "fa-solid fa-book-open" },
         { "name": "Ijazah", "link": "https://ijazah.data.kemendikdasmen.go.id/", "iconClass": "fa-solid fa-user-graduate" }
       ]
     },
