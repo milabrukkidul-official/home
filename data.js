@@ -35,6 +35,7 @@ const siteData = {
       "name": "Kesiswaan",
       "link": "#",
       "dropdown": [
+        { "name": "Buku Induk", "link": "https://milabrukkidul-official.github.io/induk", "iconClass": "fa-solid fa-children" },
         { "name": "Projects", "link": "#projects", "iconClass": "fa-solid fa-folder-open" },
         { "name": "Case Studies", "link": "#cases", "iconClass": "fa-solid fa-file-lines" }
       ]
