@@ -14,7 +14,8 @@ const siteData = {
       "link": "#",
       "dropdown": [
         { "name": "emis", "link": "https://emis.kemenag.go.id/", "iconClass": "fa-solid fa-school" },
-        { "name": "vervalpd", "link": "https://vervalpdnew2.data.kemdikbud.go.id/", "iconClass": "fa-solid fa-check-double" },
+        { "name": "vervalpd", "link": "https://vervalpdnew2.data.kemdikbud.go.id/", "iconClass": "fa-solid fa-file-fragment" },
+        { "name": "NISN", "link": "https://nisn.data.kemendikdasmen.go.id/", "iconClass": "fa-solid fa-check-double" },
         { "name": "emisgtk", "link": "https://emisgtk.kemenag.go.id/login", "iconClass": "fa-solid fa-user-tie" },
         { "name": "dev-emisgtk", "link": "https://dev-emisgtk.kemenag.go.id/login", "iconClass": "fa-solid fa-code" },
         { "name": "pdum", "link": "https://pdum.kemenag.go.id/", "iconClass": "fa-solid fa-table" },
